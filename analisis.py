@@ -65,8 +65,33 @@ edades_hombres = duckdb.sql(consulta_edad_hombres).df()
 edades_hombres['minutos'] = edades_hombres['promedio_segundos'] / 60
 print(edades_hombres)
 
-edades_hombres.plot( 'minutos','rango_edad', kind='bar')
+
+consulta_mujeres = """SElECT *
+                        FROM df
+                        WHERE "Categoría" LIKE 'Female%'
+                        ORDER BY "Posicion"
+                               """
+
+mujeres = duckdb.sql(consulta_mujeres).df()
+print(mujeres)
+
+consulta_edad_mujeres = """SELECT 
+    REPLACE("Categoría", 'Female ', '') AS rango_edad,
+    COUNT(*) as total,
+    epoch(AVG(CAST("Tiempo neto" AS INTERVAL))) AS promedio_segundos
+    FROM mujeres
+    GROUP BY rango_edad
+    ORDER BY total DESC"""
+
+edades_mujeres = duckdb.sql(consulta_edad_mujeres).df()
+edades_mujeres['minutos'] = edades_mujeres['promedio_segundos'] / 60
+print(edades_mujeres)
+
+
+edades_hombres.plot('rango_edad', 'minutos', kind='bar', label = 'Hombres')
+edades_mujeres.plot('rango_edad', 'minutos', kind='bar', label = 'Mujeres')
 plt.axhline(y=46.17, xmin=0, xmax=1, color = 'r')
+plt.legend()
 plt.show()
 
 
