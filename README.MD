@@ -1,6 +1,6 @@
 # Análisis Fiestas Mayas 2026 🏃
 
-Análisis exploratorio de los resultados de la carrera **Fiestas Mayas 2026** (10km), procesando tiempos, ritmos y distribución de participantes por género y rango de edad.
+Análisis exploratorio de los resultados de la carrera **Fiestas Mayas 2026** (10km), 50ª edición realizada el 25 de mayo en los Bosques de Palermo, Buenos Aires. Se procesan tiempos, ritmos y distribución de participantes por género y rango de edad.
 
 ---
 
@@ -9,11 +9,18 @@ Análisis exploratorio de los resultados de la carrera **Fiestas Mayas 2026** (1
 ```
 Analisis-fiestas-mayas-2026/
 │
-├── fiestas_mayas_2026.csv      # Datos crudos de la carrera
+├── fiestas_mayas_2026.csv          # Datos crudos de la carrera
 │
-├── carga_datos.py              # Lectura, limpieza y transformación de datos
-├── tablas.py                   # Consultas DuckDB y resúmenes por grupo
-├── visualizaciones.py          # Gráficos con matplotlib y seaborn
+├── carga_datos.py                  # Lectura, limpieza y transformación de datos
+├── tablas.py                       # Consultas DuckDB y resúmenes por grupo
+├── visualizaciones.py              # Gráficos con matplotlib y seaborn
+│
+├── imagenes/                       # Gráficos generados automáticamente
+│   ├── tiempo_edad_hombres.png
+│   ├── tiempo_edad_mujeres.png
+│   ├── ritmos_hombres.png
+│   ├── ritmos_mujeres.png
+│   └── comparacion_genero.png
 │
 └── README.md
 ```
@@ -24,7 +31,7 @@ Los archivos deben ejecutarse en este orden, ya que cada uno depende del entorno
 
 1. `carga_datos.py` → genera `df`, `hombres`, `mujeres`
 2. `tablas.py` → genera `resumen`, `resumen_mujeres`, `resumen_genero`
-3. `visualizaciones.py` → produce todos los gráficos
+3. `visualizaciones.py` → produce y guarda todos los gráficos en `imagenes/`
 
 ---
 
@@ -45,13 +52,21 @@ pip install pandas duckdb matplotlib seaborn numpy
 
 ---
 
-## Gráficos generados
+## Gráficos
 
-- Tiempo promedio por rango de edad — Hombres
-- Tiempo promedio por rango de edad — Mujeres
-- Histograma de ritmos (min/km) — Hombres
-- Histograma de ritmos (min/km) — Mujeres
-- Comparación de tiempo promedio por género
+### Tiempo promedio por rango de edad
+
+![Tiempo por edad - Hombres](imagenes/tiempo_edad_hombres.png)
+![Tiempo por edad - Mujeres](imagenes/tiempo_edad_mujeres.png)
+
+### Distribución de ritmos (min/km)
+
+![Ritmos Hombres](imagenes/ritmos_hombres.png)
+![Ritmos Mujeres](imagenes/ritmos_mujeres.png)
+
+### Comparación por género
+
+![Comparación género](imagenes/comparacion_genero.png)
 
 ---
 
@@ -82,4 +97,4 @@ pip install pandas duckdb matplotlib seaborn numpy
 
 ## Fuente de datos
 
-Resultados oficiales de la carrera Fiestas Mayas 2026.
+Resultados oficiales de la carrera Fiestas Mayas 2026 — Club de Corredores.

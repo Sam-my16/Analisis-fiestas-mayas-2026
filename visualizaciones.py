@@ -5,7 +5,13 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import numpy as np
 import seaborn as sns
+import tablas
+from tablas import resumen, resumen_mujeres, hombres, mujeres, resumen_genero
+import os
 
+# Carpeta donde se guardan las imágenes
+os.makedirs('imagenes', exist_ok=True)
+ 
 # ── Tiempo promedio por rango de edad - Hombres ──────────────────────────────
 plt.figure(figsize=(10, 6))
 plt.scatter(resumen['rango_edad'], resumen['promedio'], color='tab:blue', zorder=3)
@@ -16,7 +22,9 @@ plt.ylabel('Tiempo promedio (Minutos)')
 plt.title('Distribución de tiempos promedio por rango de edad - Hombres')
 plt.grid(True, linestyle=':', alpha=0.6)
 plt.tight_layout()
+plt.savefig('imagenes/tiempo_edad_hombres.png', dpi=100, bbox_inches='tight')
 plt.show()
+ 
 
 # ── Tiempo promedio por rango de edad - Mujeres ──────────────────────────────
 plt.figure(figsize=(10, 6))
@@ -28,18 +36,19 @@ plt.ylabel('Tiempo promedio (Minutos)')
 plt.title('Distribución de tiempos promedio por rango de edad - Mujeres')
 plt.grid(True, linestyle=':', alpha=0.6)
 plt.tight_layout()
+plt.savefig('imagenes/tiempo_edad_mujeres.png', dpi=100, bbox_inches='tight')
 plt.show()
-
+ 
 # ── Configuración de bines de ritmo (compartida) ─────────────────────────────
 ritmos_centros = np.arange(3.0, 11, 0.5)
 ritmos_bordes = np.append(ritmos_centros - 0.25, ritmos_centros[-1] + 0.25)
-
+ 
 labels_centros = []
 for c in ritmos_centros:
     minutos = int(c // 1)
     segundos = int(round((c % 1) * 60))
     labels_centros.append(f"{minutos}:{segundos:02d}")
-
+ 
 # ── Histograma de ritmos - Hombres ───────────────────────────────────────────
 plt.figure(figsize=(11, 6))
 plt.hist(hombres['ritmos'], bins=ritmos_bordes, color='tab:blue', edgecolor='white', zorder=3)
@@ -51,8 +60,9 @@ ax = plt.gca()
 ax.xaxis.set_minor_locator(ticker.FixedLocator(ritmos_bordes))
 plt.grid(axis='y', linestyle='--', alpha=0.7, zorder=0)
 plt.tight_layout()
+plt.savefig('imagenes/ritmos_hombres.png', dpi=100, bbox_inches='tight')
 plt.show()
-
+ 
 # ── Histograma de ritmos - Mujeres ───────────────────────────────────────────
 plt.figure(figsize=(11, 6))
 plt.hist(mujeres['ritmos'], bins=ritmos_bordes, color='tab:orange', edgecolor='white', zorder=3)
@@ -64,16 +74,16 @@ ax = plt.gca()
 ax.xaxis.set_minor_locator(ticker.FixedLocator(ritmos_bordes))
 plt.grid(axis='y', linestyle='--', alpha=0.7, zorder=0)
 plt.tight_layout()
+plt.savefig('imagenes/ritmos_mujeres.png', dpi=100, bbox_inches='tight')
 plt.show()
-
-# ─── Comparación hombres - mujeres ───────────────────────────────────────────
-plt.figure(figsize=(6, 5))
+ 
+# ── Comparación hombres vs mujeres ───────────────────────────────────────────
+plt.figure(figsize=(8, 6))
 sns.barplot(data=resumen_genero, x='genero', y='tiempo_promedio',
-            palette={'Hombres': 'tab:blue', 'Mujeres': 'tab:orange'}, zorder=3)
+            palette=['tab:blue', 'tab:orange'])
 plt.ylabel('Tiempo promedio (minutos)')
-plt.xlabel('Género')
 plt.title('Tiempo promedio por género')
-plt.grid(axis='y', linestyle='--', alpha=0.7, zorder=0)
-
+plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
+plt.savefig('imagenes/comparacion_genero.png', dpi=100, bbox_inches='tight')
 plt.show()

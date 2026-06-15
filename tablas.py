@@ -1,7 +1,9 @@
 # Requiere haber ejecutado carga_datos.py previamente
 # (hombres y mujeres deben estar en el entorno)
-
+import carga_datos  # ejecuta el archivo y deja df, hombres, mujeres en el entorno
+from carga_datos import df, hombres, mujeres
 import duckdb
+import pandas as pd
 
 # --- Categorías disponibles ---
 consulta_categorias = '''
