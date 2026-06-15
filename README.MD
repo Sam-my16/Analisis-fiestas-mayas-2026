@@ -56,44 +56,18 @@ pip install pandas duckdb matplotlib seaborn numpy
 
 ### Tiempo promedio por rango de edad
 
-![Tiempo por edad - Hombres](imagenes/tiempo_edad_hombres.png)
-![Tiempo por edad - Mujeres](imagenes/tiempo_edad_mujeres.png)
+<img src="imagenes/tiempo_edad_hombres.png" width="60%">
+<img src="imagenes/tiempo_edad_mujeres.png" width="60%">
 
 ### Distribución de ritmos (min/km)
 
-![Ritmos Hombres](imagenes/ritmos_hombres.png)
-![Ritmos Mujeres](imagenes/ritmos_mujeres.png)
+<img src="imagenes/ritmos_hombres.png" width="60%">
+<img src="imagenes/ritmos_mujeres.png" width="60%">
 
 ### Comparación por género
 
-![Comparación género](imagenes/comparacion_genero.png)
+<img src="imagenes/comparacion_genero.png" width="60%">
 
----
-
-## Análisis
-
-> ✏️ *Esta sección es para completar con tus propias conclusiones.*
-
-### Participación
-
-<!-- ¿Cuántos participantes hubo en total? ¿Cómo se distribuyeron por género?
-     ¿Qué rango de edad tuvo más participantes? -->
-
-### Tiempos y ritmos
-
-<!-- ¿Cuál fue el tiempo promedio general? ¿Hubo diferencias entre hombres y mujeres?
-     ¿En qué ritmo se concentró la mayor parte de los participantes? -->
-
-### Distribución por edad
-
-<!-- ¿Cómo varía el tiempo promedio a medida que aumenta la edad?
-     ¿Hay algún grupo etario que se destaque por sus tiempos? -->
-
-### Observaciones generales
-
-<!-- Cualquier patrón, anomalía o dato interesante que hayas notado en el análisis. -->
-
----
 
 ## Fuente de datos
 
