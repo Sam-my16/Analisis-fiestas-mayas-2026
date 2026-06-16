@@ -61,8 +61,7 @@ pip install pandas duckdb matplotlib seaborn numpy
 
 ### Distribución de ritmos (min/km)
 
-<img src="imagenes/ritmos_hombres.png" width="60%">
-<img src="imagenes/ritmos_mujeres.png" width="60%">
+<img src="imagenes/ritmos_ambos.png" width="60%">
 
 ### Comparación por género
 
