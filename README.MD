@@ -58,8 +58,13 @@ pip install pandas duckdb matplotlib seaborn numpy
 
 Matplotlib usa azul como color principal y naranja como secundario. Usar azul para los hombres me sigue incomodando, pero por ahora lo dejo así mientras encuentro algo mejor.
 
-Al parecer el tema sigue siendo un debate abierto en la comunidad de visualización de datos. Me convenció la propuesta de The Telegraph: morado para mujeres, verde para hombres. En el futuro voy a actualizar los gráficos, aunque con una variación propia: morado para mujeres y amarillo para hombres, justo los colores de la bandera no binaria!
-Sobre el tema, vale la pena leer: datawrapper.de/blog/
+Al parecer el tema sigue siendo un debate abierto en la comunidad de visualización de datos. Me convenció la propuesta de The Telegraph: morado para mujeres, verde para hombres. 
+
+En el futuro voy a actualizar los gráficos, aunque con una variación propia: morado para mujeres y amarillo para hombres, justo los colores de la bandera no binaria!
+
+Sobre el tema, vale la pena leer: https://www.datawrapper.de/blog/gendercolor
+
+
 
 ### Tiempo promedio por rango de edad
 
